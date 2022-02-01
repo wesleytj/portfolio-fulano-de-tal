@@ -20,86 +20,8 @@ a, li{
     --font-action: "Muli", sans-serif;
 }
 
-/* ---===== MENU HAMBURGUER =====--- */
-
-.hamburguer{
-    width: 4rem;
-    height: 4rem;
-    position: fixed;
-    top: 3rem;
-    right: 3rem;
-    z-index: 9;
-    cursor: pointer;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.line{
-    width: 100%;
-    height: .2rem;
-    background-color: #eee;
-    box-shadow: .1rem .1rem 1px #000;
-}
-
-/* ---===== SIDEBAR =====--- */
-.sidebar{
-    width: 20rem;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-
-    background-color: #fff;
-}
-
-.menu{
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.menu-link{
-    color: #262626;
-    font-size: 2rem;
-    font-family: var(--font-action);
-    transition: color .5s ease-in-out;
-}
-
-.menu-link:hover{
-    color: #9733EE;
-}
-
-.social-media{
-    width: 100%;
-    position: absolute;
-    bottom: 10rem;
-
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.social-media i{
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.6rem;
-    color: #fff;
-    background-color: #9733EE;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: background-color 1s;
-}
-
-.social-media i:hover{
-    background-color: #6e11be;
-}
-
 /* ---===== HEADER =====--- */
+
 header {
     width   : 100%;
     height  : 100vh;
@@ -193,4 +115,133 @@ header {
         transform: translateY(0);
         opacity  : 1;
     }
+}
+
+/* ---===== MENU HAMBURGUER =====--- */
+
+.hamburguer{
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    z-index: 9;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: all 1s;
+}
+
+.show-menu .hamburguer{
+    right: 22rem; /*Joga o hamburguer pro lado*/
+}
+
+.line{
+    width: 100%;
+    height: .2rem;
+    background-color: #eee;
+    box-shadow: .1rem .1rem 1px #000;
+    transition: transform .5s;
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(1rem, -.3rem);
+}
+.show-menu #line2{
+    visibility: hidden;
+}
+.show-menu #line3{
+    transform: rotate(-45deg) translate(1.7rem, -.25rem);
+}
+
+/*Balão fechar*/
+.hamburguer span{
+    width: 6rem;
+    height: 2rem;
+    position: absolute;
+    left: 6rem;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9733EE;
+    color: #fff;
+    font-family: var(--font-action);
+    opacity: 0;
+}
+
+.hamburguer span::before{
+    content: "";
+    position: absolute;
+    border-right: .7rem solid #9733EE;
+    border-left: .7rem solid transparent;
+    border-top: .7rem solid transparent;
+    border-bottom: .7rem solid transparent;
+    left: -1.4rem;
+}
+
+.show-menu .hamburguer:hover span{
+    opacity: 1;
+}
+
+/* ---===== SIDEBAR =====--- */
+.sidebar{
+    width: 30rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -30rem;/*Deixa o menu pra fora*/
+    background-color: #fff;
+    transition: all 1s;
+}
+
+.show-menu .sidebar{
+    right: 0; /*Traz o menu pra dentro*/
+}
+
+.menu{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.menu-link{
+    color: #262626;
+    font-size: 2rem;
+    font-family: var(--font-action);
+    transition: color .3s ease-in-out;
+}
+
+.menu-link:hover{
+    color: #9733EE;
+}
+
+.social-media{
+    width: 100%;
+    position: absolute;
+    bottom: 10rem;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-media i{
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #9733EE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 1s;
+}
+
+.social-media i:hover{
+    background-color: #6e11be;
 }
